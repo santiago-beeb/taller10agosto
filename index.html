@@ -16,11 +16,34 @@
 
 <body>
     <header>
-        <h1>Taller Santiago Alzate Garcia</h1>
+        <h1>Taller 10 de Agosto</h1>
     </header>
+    <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejercicio1">Ejercicio 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejercicio2">Ejercicio 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejercicio3">Ejercicio 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejercicio4">Ejercicio 4</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejercicio5">Ejercicio 5</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <ol>
-            <li>
+            <li id="ejercicio1">
                 Crea una simulación simple de procesamiento de una lista de tareas usando un arreglo. Utiliza
                 unshift() para agregar tareas al principio de la lista y shift() para procesar y eliminar tareas
                 de la lista.
@@ -46,7 +69,7 @@
             <hr>
             <br>
 
-            <li>
+            <li id="ejercicio2">
                 Crea una matriz con 10 usuarios(nombre,edad), con una función filtra los usuarios mayores de edad
                 creando una segunda matriz.
                 <ul>
@@ -70,57 +93,60 @@
             <hr>
             <br>
 
-            <li>
-                Realiza los pedidos de un restaurante, dándole precio a cada artículo. Estos pedidos irán a una Matriz y
+            <li id="ejercicio3">
+
+                Realiza los pedidos de un restaurante, dándole precio a cada artículo. Estos pedidos irán a una
+                Matriz y
                 al finalizar el día calcularemos lo que se realizo en total.
                 <ul>
                     <li>
-                        Cada pedido se imprimirá un mensaje que diga, su pedido ha sido tomado exitosamente
+                        Cada pedido se imprimirá un mensaje que diga, su pedido ha sido tomado exitosamente.
                     </li>
+                </ul>
+            </li>
+            <button id="orderButton" class="btn btn-primary">Realizar Pedidos</button>
+            <ul id="menuList"></ul>
+            </li>
+
+            <br>
+            <hr>
+            <br>
+
+            <li id="ejercicio4">
+                Con la ayuda de .forEach le vamos a Incrementar la edad de todos los usuarios en un arreglo y
+                modifica el arreglo original.
+                <h4>Edad Original</h4>
+                <ul id="ageList"></ul>
+
+                <h4>Edad Incrementada</h4>
+                <ul id="ageListIncremented"></ul>
+
                 </ul>
 
 
 
-
             </li>
 
             <br>
             <hr>
             <br>
 
-            <li>
-                Con la ayuda de .forEach le vamos a Incrementar la edad de todos los usuarios en un arreglo y
-                modifica el arreglo original.
-                let usuarios = [
-                { nombre: 'Juan', edad: 25 },
-                { nombre: 'María', edad: 30 },
-                { nombre: 'Pedro', edad: 28 }
-                ];
+            <li id="ejercicio5">
+                <p>
+                    Utilizando el Dom crea una función que me agregue colores en una lista . En el navegador debe quedar
+                    algo asi
+                </p>
+                <img src="assets/Imagen1.png" alt=""> <br>
+                <p>Prueba a escribir el color de ingles</p>
+                <input id="colorInput" type="text" placeholder="Agrega un color"> <br> <br>
+                <button id="addColor" class="btn btn-primary">Agregar color</button>
 
-
-
-
-
-            </li>
-
-            <br>
-            <hr>
-            <br>
-
-            <li>
-                Utilizando el Dom crea una función que me agregue colores en una lista . En el navegador debe quedar
-                algo asi
-                <img src="assets/Imagen1.svg" alt="">
-                <img src="assets/Imagen1.png" alt="">
-
-
-
-
+                <ul id="colorList" class="list-unstyled"></ul>
             </li>
         </ol>
     </div>
     <footer>
-        <p>Hecho por Santiago Alzate</p>
+        <p>Hecho por Santiago Alzate García</p>
     </footer>
 </body>
 

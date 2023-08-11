@@ -88,16 +88,108 @@ document.addEventListener("DOMContentLoaded", () => {
   const adultUsers = usersFilter(users);
   updateList(userList, users);
   updateList(adultUserList, adultUsers);
+
+  // 3.	Realiza los pedidos de un restaurante, dándole precio a cada artículo. Estos pedidos irán a una Matriz y al finalizar el día calcularemos lo que se realizo en total.
+  // •	Cada pedido se imprimirá un mensaje que diga, su pedido ha sido tomado exitosamente
+
+  const menu = [
+    ["Pizza", 4],
+    ["Hamburguesas", 6],
+    ["Pastel de chocolate", 7],
+    ["Tacos", 9],
+  ];
+
+  const orderButton = document.getElementById("orderButton");
+
+  orderButton.addEventListener("click", function () {
+    const orders = [];
+
+    let pedidos = parseInt(prompt("Ingrese el número de pedidos"));
+
+    while (pedidos !== 0) {
+      let orderIndex = parseInt(
+        prompt(
+          "Seleccione un número del menú:\n\n1. Pizza : $4 \n2. Hamburguesas : $6 \n3. Pastel de chocolate : $7 \n4. Tacos : $9 \n0. Cancelar"
+        )
+      );
+
+      if (orderIndex === 0) {
+        alert("Pedido cancelado.");
+        break; //cancelar
+      }
+
+      if (orderIndex >= 1 && orderIndex <= menu.length) {
+        const selectedOrder = menu[orderIndex - 1];
+        orders.push(selectedOrder);
+        alert(`Su pedido de ${selectedOrder[0]} ha sido tomado exitosamente.`);
+        pedidos--;
+      } else {
+        alert("Opción inválida. Por favor, seleccione un número del menú.");
+      }
+    }
+
+    let total = 0;
+    for (const order of orders) {
+      total += order[1];
+    }
+
+    alert(`Total de ventas al final del día: $${total}`);
+  });
+
+  // 4.	Con la ayuda de .forEach le vamos a Incrementar la edad de todos los usuarios en un arreglo y modifica el arreglo original.
+
+  const originalAgeList = document.getElementById("ageList");
+  const incrementedAgeList = document.getElementById("ageListIncremented");
+
+  let usuarios = [
+    { nombre: "Juan", edad: 25 },
+    { nombre: "María", edad: 30 },
+    { nombre: "Pedro", edad: 28 },
+  ];
+
+  function updateAgeLists() {
+    originalAgeList.innerHTML = usuarios
+      .map((user) => `<li>${user.nombre}, Edad Original: ${user.edad}</li>`)
+      .join("");
+
+    const incrementedUsers = [];
+    usuarios.forEach((user) => {
+      incrementedUsers.push({ ...user, edad: user.edad + 1 });
+    });
+
+    incrementedAgeList.innerHTML = incrementedUsers
+      .map((user) => `<li>${user.nombre}, Edad Incrementada: ${user.edad}</li>`)
+      .join("");
+  }
+
+  updateAgeLists();
+
+  // 5.	Utilizando el Dom crea una función que me agregue colores en una lista .
+
+  const colors = [];
+  const colorList = document.getElementById("colorList");
+  const colorInput = document.getElementById("colorInput");
+  const addColor = document.getElementById("addColor");
+
+  const updateColorList = () => {
+    colorList.innerHTML = colors
+      .map(
+        (color) =>
+          `<li style="color: ${color}; background-color: #0002 ">${color}</li>`
+      )
+      .join("");
+  };
+
+  const addColorItem = () => {
+    const newColor = colorInput.value.trim(); //valor sin espacios para asegurar el color correcto
+    if (newColor !== "") {
+      colors.unshift(newColor);
+      const message = `Color agregado: ${newColor}`;
+      showAlert(message, "alert-primary");
+      updateColorList();
+    }
+    colorInput.value = ""; //input vacio
+  };
+
+  addColor.addEventListener("click", addColorItem);
 });
-
-// 3.	Realiza los pedidos de un restaurante, dándole precio a cada artículo. Estos pedidos irán a una Matriz y al finalizar el día calcularemos lo que se realizo en total.
-// •	Cada pedido se imprimirá un mensaje que diga, su pedido ha sido tomado exitosamente
-
-// 4.	Con la ayuda de .forEach le vamos a Incrementar la edad de todos los usuarios en un arreglo y modifica el arreglo original.
-// let usuarios = [
-//  { nombre: 'Juan', edad: 25 },
-//  { nombre: 'María', edad: 30 },
-//  { nombre: 'Pedro', edad: 28 }
-// ];
-
-// 5.	Utilizando el Dom crea una función que me agregue colores en una lista .  En el navegador debe quedar algo asi
